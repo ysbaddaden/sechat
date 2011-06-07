@@ -1,0 +1,38 @@
+en:
+  activerecord:
+    attributes:
+      question:
+        subject: "Subject"
+        body: "Body"
+        created_at: "Date"
+      reply:
+        body: "Body"
+        created_at: "Date"
+  
+  sechat:
+    questions:
+      index:
+        search_placeholder: "Search questions"
+        search_btn: "Search"
+        new_question_link: "Ask a Auestion"
+        asked: "Asked on %{date}"
+        replies:
+          one: "%{count} reply on %{date}"
+          other: "%{count} replies on %{date}"
+      new:
+        heading: "New Question"
+        submit_btn: "Post question"
+      edit:
+        heading: "Edit Question"
+        submit_btn: "Save"
+    
+    answers:
+      answer:
+        posted: "Posted on %{date}"
+      new:
+        submit_btn: "Post Answer"
+      edit:
+        submit_btn: "Save"
+    
+    cancel: "cancel"
+

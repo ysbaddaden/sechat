@@ -1,0 +1,14 @@
+<section id="question">
+  <article class="question">
+    <h1><%= @question.subject %></h1>
+    
+    <div class="body">
+      <%= simple_format @question.body %>
+    </div>
+  </article>
+  
+  <section id="answers">
+    <%#= render :partial => 'answers/answer', :collection => @question.answers %>
+    <%#= render 'answers/answer' %>
+  </section>
+</section>

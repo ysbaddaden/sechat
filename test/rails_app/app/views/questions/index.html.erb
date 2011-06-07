@@ -1,0 +1,13 @@
+<section id="questions">
+  <h1><%= t('sechat.questions.index.heading') %></h1>
+  
+  <p>
+    <%= link_to t('sechat.questions.index.new_question'), new_question_path %>
+  </p>
+  
+  <% @questions.each do |question| %>
+    <article class="question">
+      <h2><%= link_to question_path(question), question.subject %></h2>
+    </article>
+  <% end %>
+</section>

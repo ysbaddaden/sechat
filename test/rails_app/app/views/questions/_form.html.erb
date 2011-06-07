@@ -1,0 +1,16 @@
+<%= form_for @question do |f| %>
+  <div class="field">
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  
+  <div class="field">
+    <%= f.submit t(:submit_btn, :scope => [:sechat, :questions, action_name]) %>
+    <%= link_to t('sechat.cancel'), root_url %>
+  </div>
+<% end %>
