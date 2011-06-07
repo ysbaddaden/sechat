@@ -8,7 +8,7 @@
   </article>
   
   <section id="answers">
-    <%#= render :partial => 'answers/answer', :collection => @question.answers %>
-    <%#= render 'answers/answer' %>
+    <%= render :partial => 'answers/answer', :collection => @question.answers %>
+    <%= render 'answers/form' %>
   </section>
 </section>

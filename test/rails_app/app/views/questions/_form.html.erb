@@ -10,7 +10,7 @@
   </div>
   
   <div class="field">
-    <%= f.submit t(:submit_btn, :scope => [:sechat, :questions, action_name]) %>
+    <%= f.submit t(:submit_btn, :scope => [:sechat, :questions, @question.new_record? ? :new : :edit]) %>
     <%= link_to t('sechat.cancel'), root_url %>
   </div>
 <% end %>

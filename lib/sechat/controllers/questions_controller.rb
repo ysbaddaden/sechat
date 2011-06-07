@@ -5,6 +5,14 @@ module Sechat
       respond_with(@questions)
     end
 
+    def unanswered
+      @questions = Question.unanswered
+      
+      respond_with(@questions) do |format|
+        format.html { render 'index' }
+      end
+    end
+
     def show
       @question = Question.find(params[:id])
       respond_with(@question)

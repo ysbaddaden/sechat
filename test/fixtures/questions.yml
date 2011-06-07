@@ -1,4 +1,10 @@
-first:
+unanswered:
   subject: "How should I ask questions?"
   body: "Lorem ipsum dolor sit amet."
+  answers_count: 0
+
+answered:
+  subject: "How should I ask questions?"
+  body: "Lorem ipsum dolor sit amet."
+  answers_count: 2
 

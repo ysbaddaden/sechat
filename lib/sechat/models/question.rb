@@ -4,7 +4,7 @@ module Sechat
       extend ActiveSupport::Concern
 
       included do
-        has_many :answers, :order => :created_at
+        has_many :answers, :order => :created_at, :dependent => :delete_all
         
         scope :answered,   where(:answered => true)
         scope :unanswered, where(:answered => false)
