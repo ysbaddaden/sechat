@@ -5,6 +5,7 @@ module Sechat
 
       included do
         belongs_to :question, :counter_cache => true
+        validates_presence_of :question_id, :body
       end
     end
   end

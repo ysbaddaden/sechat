@@ -5,6 +5,7 @@ module Sechat
 
       included do
         has_many :answers, :order => :created_at, :dependent => :delete_all
+        validates_presence_of :subject, :body
         
         scope :answered,   where(:answered => true)
         scope :unanswered, where(:answered => false)
