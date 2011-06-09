@@ -14,11 +14,14 @@ en:
       index:
         search_placeholder: "Search questions"
         search_btn: "Search"
-        new_question_link: "Ask a Auestion"
+        new_question: "Ask a Question"
         asked: "Asked on %{date}"
-        replies:
-          one: "%{count} reply on %{date}"
-          other: "%{count} replies on %{date}"
+#        replied:
+#          one: "%{count} reply on %{date}"
+#          other: "%{count} replies on %{date}"
+        replied:
+          one: "%{count} reply"
+          other: "%{count} replies"
       new:
         heading: "New Question"
         submit_btn: "Post question"

@@ -1,5 +1,5 @@
 <section id="questions">
-  <h1><%= t('sechat.questions.index.heading') %></h1>
+  <!--h1><%= t('sechat.questions.index.heading') %></h1-->
   
   <p>
     <%= link_to t('sechat.questions.index.new_question'), new_question_path %>
@@ -7,7 +7,14 @@
   
   <% @questions.each do |question| %>
     <article class="question">
-      <h2><%= link_to question_path(question), question.subject %></h2>
+      <h2><%= link_to question.subject, question_path(question) %></h2>
+      <p class="infos">
+        <% if question.answers_count == 0 %>
+          <%= t('sechat.questions.index.asked', :date => l(question.created_at, :format => :long)) %>
+        <% else %>
+          <%= t('sechat.questions.index.replied', :count => question.answers_count) %>
+        <% end %>
+      </p>
     </article>
   <% end %>
 </section>

@@ -1,4 +1,4 @@
 RailsApp::Application.routes.draw do
   sechat
-  root :to => "home#index"
+  root :to => redirect("/questions")
 end

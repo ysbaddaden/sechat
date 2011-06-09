@@ -6,11 +6,11 @@
   
   <div class="field">
     <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :rows => 5 %>
   </div>
   
   <div class="field">
     <%= f.submit t(:submit_btn, :scope => [:sechat, :questions, @question.new_record? ? :new : :edit]) %>
-    <%= link_to t('sechat.cancel'), root_url %>
+    <%= link_to t('sechat.cancel'), questions_path %>
   </div>
 <% end %>
