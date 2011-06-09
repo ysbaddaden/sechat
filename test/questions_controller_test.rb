@@ -26,6 +26,7 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_response :ok
     assert_select 'h1', questions(:answered).subject
     assert_select '#answers article.answer', questions(:answered).answers.count
+    questions(:answered).answers.each { |a| assert_select "#A#{a.to_param}", 1 }
   end
 
   test "should get new" do
@@ -43,13 +44,13 @@ class QuestionsControllerTest < ActionController::TestCase
   test "should create" do
     assert_difference('Question.count') do
       post :create, :question => { :subject => "lorem ipsum", :body => "dolor sit amet" }
-      assert_redirected_to question_path(assigns(:question))
+      assert_redirected_to question_url(assigns(:question))
     end
   end
 
   test "should update" do
     put :update, :question => { :subject => "dolor sit amet" }, :id => questions(:unanswered).to_param
-    assert_redirected_to question_path(questions(:unanswered))
+    assert_redirected_to question_url(questions(:unanswered))
     assert_equal "dolor sit amet", questions(:unanswered).reload.subject
   end
 
@@ -57,7 +58,7 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_difference('Question.count', -1) do
       assert_difference('Answer.count', -questions(:answered).answers.count) do
         delete :destroy, :id => questions(:answered).to_param
-        assert_redirected_to questions_path
+        assert_redirected_to questions_url
       end
     end
   end

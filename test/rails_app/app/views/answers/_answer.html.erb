@@ -1,5 +1,5 @@
-<article class="answer">
+<%= content_tag :article, :class => 'answer', :id => "A#{answer.to_param}" do %>
   <div class="body">
     <%= simple_format answer.body %>
   </div>
-</article>
+<% end %>
