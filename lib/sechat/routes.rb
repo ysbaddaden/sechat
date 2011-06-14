@@ -5,7 +5,7 @@ module ActionDispatch # :nodoc:
         resources :questions do
           get :unanswered, :on => :collection
           
-          resources :answers do
+          resources :replies do
             put :answer, :on => :member
           end
         end

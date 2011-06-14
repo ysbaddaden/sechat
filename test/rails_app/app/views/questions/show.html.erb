@@ -11,8 +11,8 @@
     </p>
   </article>
   
-  <section id="answers">
-    <%= render :partial => 'answers/answer', :collection => @question.answers %>
-    <%= render 'answers/form' %>
+  <section id="replies">
+    <%= render :partial => 'replies/reply', :collection => @question.replies %>
+    <%= render 'replies/form' %>
   </section>
 </section>

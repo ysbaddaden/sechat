@@ -15,21 +15,21 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_select "#questions article.question", Question.unanswered.count
   end
 
-  test "should get show for unanswered question" do
-    get :show, :id => questions(:unanswered).to_param
+  test "should get show for unreplied question" do
+    get :show, :id => questions(:unreplied).to_param
     assert_response :ok
-    assert_select 'h1', questions(:unanswered).subject
+    assert_select 'h1', questions(:unreplied).subject
   end
 
-  test "should get show for answered question" do
-    get :show, :id => questions(:answered).to_param
+  test "should get show for replied question" do
+    get :show, :id => questions(:replied).to_param
     assert_response :ok
-    assert_select 'h1', questions(:answered).subject
-    assert_select '#answers article.answer', questions(:answered).answers.count
+    assert_select 'h1', questions(:replied).subject
+    assert_select '#replies article.reply', questions(:replied).replies.count
     
-    questions(:answered).answers.each do |answer|
-      assert_select "#A#{answer.to_param}", 1
-      assert_select "a[href=#{answer_question_answer_path(questions(:answered), answer)}]", 1
+    questions(:replied).replies.each do |reply|
+      assert_select "#A#{reply.to_param}", 1
+      assert_select "a[href=#{answer_question_reply_path(questions(:replied), reply)}]", 1
     end
   end
 
@@ -40,9 +40,9 @@ class QuestionsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, :id => questions(:answered).to_param
+    get :edit, :id => questions(:replied).to_param
     assert_response :ok
-    assert_select "form[action=#{question_path(questions(:answered).to_param)}] input[value=put]"
+    assert_select "form[action=#{question_path(questions(:replied).to_param)}] input[value=put]"
   end
 
   test "should create" do
@@ -53,15 +53,15 @@ class QuestionsControllerTest < ActionController::TestCase
   end
 
   test "should update" do
-    put :update, :question => { :subject => "dolor sit amet" }, :id => questions(:unanswered).to_param
-    assert_redirected_to question_url(questions(:unanswered))
-    assert_equal "dolor sit amet", questions(:unanswered).reload.subject
+    put :update, :question => { :subject => "dolor sit amet" }, :id => questions(:unreplied).to_param
+    assert_redirected_to question_url(questions(:unreplied))
+    assert_equal "dolor sit amet", questions(:unreplied).reload.subject
   end
 
   test "should destroy" do
     assert_difference('Question.count', -1) do
-      assert_difference('Answer.count', -questions(:answered).answers.count) do
-        delete :destroy, :id => questions(:answered).to_param
+      assert_difference('Reply.count', -questions(:replied).replies.count) do
+        delete :destroy, :id => questions(:replied).to_param
         assert_redirected_to questions_url
       end
     end

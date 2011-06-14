@@ -1,16 +1,16 @@
-class CreateAnswers < ActiveRecord::Migration
+class CreateReplies < ActiveRecord::Migration
   def self.up
-    create_table :answers do |t|
+    create_table :replies do |t|
       t.references :question,   :null => false
       t.text       :body,       :null => false
       t.boolean    :answer,                     :default => false
       t.datetime   :created_at
     end
     
-    add_index :answers, :question_id
+    add_index :replies, :question_id
   end
 
   def self.down
-    drop_table :answers
+    drop_table :replies
   end
 end

@@ -1,10 +1,22 @@
-unanswered:
+unreplied:
   subject: "How should I ask questions?"
   body: "Lorem ipsum dolor sit amet."
-  answers_count: 0
+  replies_count: 0
+
+replied:
+  subject: "How should I ask questions?"
+  body: "Lorem ipsum dolor sit amet."
+  replies_count: 2
 
 answered:
   subject: "How should I ask questions?"
   body: "Lorem ipsum dolor sit amet."
-  answers_count: 2
+  replies_count: 1
+  answered: true
+
+multi_answered:
+  subject: "How should I ask questions?"
+  body: "Lorem ipsum dolor sit amet."
+  replies_count: 3
+  answered: true
 

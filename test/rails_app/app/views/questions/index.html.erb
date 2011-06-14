@@ -9,13 +9,13 @@
     <article class="question">
       <h2><%= link_to question.subject, question_path(question) %></h2>
       <p class="infos">
-        <% if question.answers_count == 0 %>
+        <% if question.replies_count == 0 %>
           <%= t('sechat.questions.index.asked',
             :date => l(question.created_at, :format => :long)) %>
         <% else %>
           <%= t('sechat.questions.index.replied',
-            :count => question.answers_count,
-            :date  => l(question.answers.last.created_at, :format => :long)) %>
+            :count => question.replies_count,
+            :date  => l(question.replies.last.created_at, :format => :long)) %>
         <% end %>
       </p>
     </article>

@@ -4,7 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.string   :subject,       :null => false
       t.text     :body,          :null => false
       t.boolean  :answered,                      :default => false
-      t.integer  :answers_count,                 :default => 0
+      t.integer  :replies_count,                 :default => 0
       t.datetime :created_at
     end
   end

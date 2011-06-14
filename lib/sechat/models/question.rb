@@ -4,7 +4,7 @@ module Sechat
       extend ActiveSupport::Concern
 
       included do
-        has_many :answers, :order => :created_at, :dependent => :delete_all
+        has_many :replies, :order => :created_at, :dependent => :delete_all
         validates_presence_of :subject, :body
         
         scope :latest, order("created_at DESC")

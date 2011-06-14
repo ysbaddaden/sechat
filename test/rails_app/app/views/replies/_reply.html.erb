@@ -1,0 +1,11 @@
+<%= content_tag :article, :class => 'reply', :id => "A#{reply.to_param}" do %>
+  <div class="body">
+    <%= simple_format reply.body %>
+  </div>
+  
+  <p>
+    <%= t('sechat.replies.reply.posted', :date => l(reply.created_at, :format => :long)) %>
+    <%= link_to t(reply.answer? ? :unanswer_btn : :answer_btn, :scope => [:sechat, :replies, :reply]),
+      answer_question_reply_path(@question, reply), :method => :put %>
+  </p>
+<% end %>

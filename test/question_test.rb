@@ -12,4 +12,13 @@ class QuestionTest < ActiveSupport::TestCase
   test "should create" do
     assert Question.create(:subject => "lorem", :body => "ipsum").errors.empty?
   end
+
+  test "latest scope" do
+  end
+
+  test "answered scope" do
+  end
+
+  test "unanswered scope" do
+  end
 end

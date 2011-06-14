@@ -1,0 +1,34 @@
+replied_1:
+  question: replied
+  body: "lorem ipsum?"
+  created_at: "2011-05-03 09:45:00"
+
+replied_2:
+  question: replied
+  body: "dolor sit!"
+  created_at: "2011-05-03 09:57:00"
+
+answer:
+  question: answered
+  body: "dolor sit!"
+  created_at: "2011-05-03 09:48:00"
+  answer: true
+
+multi_answered_1:
+  question: multi_answered
+  body: "dolor sit!"
+  created_at: "2011-05-03 09:43:00"
+  answer: true
+
+multi_answered_3:
+  question: multi_answered
+  body: "dolor sit!"
+  created_at: "2011-05-03 09:49:00"
+  answer: true
+
+multi_answered_2:
+  question: multi_answered
+  body: "dolor sit!"
+  created_at: "2011-05-03 09:46:00"
+  answer: false
+

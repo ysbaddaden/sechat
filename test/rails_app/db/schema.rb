@@ -12,21 +12,21 @@
 
 ActiveRecord::Schema.define(:version => 20110603130957) do
 
-  create_table "answers", :force => true do |t|
+  create_table "questions", :force => true do |t|
+    t.string   "subject",                          :null => false
+    t.text     "body",                             :null => false
+    t.boolean  "answered",      :default => false
+    t.integer  "replies_count", :default => 0
+    t.datetime "created_at"
+  end
+
+  create_table "replies", :force => true do |t|
     t.integer  "question_id",                    :null => false
     t.text     "body",                           :null => false
     t.boolean  "answer",      :default => false
     t.datetime "created_at"
   end
 
-  add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
-
-  create_table "questions", :force => true do |t|
-    t.string   "subject",                          :null => false
-    t.text     "body",                             :null => false
-    t.boolean  "answered",      :default => false
-    t.integer  "answers_count", :default => 0
-    t.datetime "created_at"
-  end
+  add_index "replies", ["question_id"], :name => "index_replies_on_question_id"
 
 end

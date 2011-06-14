@@ -1,13 +1,13 @@
-<% answer = @answer || @question.answers.build %>
+<% reply = @reply || @question.replies.build %>
 
-<%= form_for [@question, answer] do |f| %>
+<%= form_for [@question, reply] do |f| %>
   <div class="field">
     <%= f.label :body %>
     <%= f.text_area :body, :rows => 5 %>
   </div>
   
   <div class="field">
-    <%= f.submit t(:submit_btn, :scope => [:sechat, :answers, answer.new_record? ? :new : :edit]) %>
+    <%= f.submit t(:submit_btn, :scope => [:sechat, :replies, reply.new_record? ? :new : :edit]) %>
     <%#= link_to t('sechat.cancel'), question_path(@question) %>
   </div>
 <% end %>
