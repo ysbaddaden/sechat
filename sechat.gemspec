@@ -9,21 +9,47 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julien Portalier"]
-  s.date = %q{2011-06-06}
+  s.date = %q{2011-06-14}
   s.description = %q{Q&A engine for Ruby on Rails.}
   s.email = %q{ysbaddaden@gmail.com}
   s.files = [
     "lib/sechat.rb",
-    "lib/sechat/controllers/answers_controller.rb",
     "lib/sechat/controllers/questions_controller.rb",
-    "lib/sechat/models/answer.rb",
+    "lib/sechat/controllers/replies_controller.rb",
     "lib/sechat/models/question.rb",
+    "lib/sechat/models/reply.rb",
     "lib/sechat/routes.rb"
   ]
   s.homepage = %q{http://github.com/ysbaddaden/sechat}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
   s.summary = %q{Blog engine for Ruby on Rails.}
+  s.test_files = [
+    "test/question_test.rb",
+    "test/questions_controller_test.rb",
+    "test/rails_app/app/controllers/application_controller.rb",
+    "test/rails_app/app/controllers/questions_controller.rb",
+    "test/rails_app/app/controllers/replies_controller.rb",
+    "test/rails_app/app/helpers/application_helper.rb",
+    "test/rails_app/app/models/question.rb",
+    "test/rails_app/app/models/reply.rb",
+    "test/rails_app/config/application.rb",
+    "test/rails_app/config/boot.rb",
+    "test/rails_app/config/environment.rb",
+    "test/rails_app/config/environments/development.rb",
+    "test/rails_app/config/environments/production.rb",
+    "test/rails_app/config/environments/test.rb",
+    "test/rails_app/config/initializers/secret_token.rb",
+    "test/rails_app/config/initializers/session_store.rb",
+    "test/rails_app/config/routes.rb",
+    "test/rails_app/db/migrate/20110603130737_create_questions.rb",
+    "test/rails_app/db/migrate/20110603130957_create_replies.rb",
+    "test/rails_app/db/schema.rb",
+    "test/rails_app/db/seeds.rb",
+    "test/replies_controller_test.rb",
+    "test/reply_test.rb",
+    "test/test_helper.rb"
+  ]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
