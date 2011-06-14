@@ -5,6 +5,10 @@
     <div class="body">
       <%= simple_format @question.body %>
     </div>
+    
+    <p>
+      <%= t('sechat.questions.show.asked', :date => l(@question.created_at, :format => :long)) %>
+    </p>
   </article>
   
   <section id="answers">

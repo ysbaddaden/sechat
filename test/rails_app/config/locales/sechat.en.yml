@@ -16,12 +16,11 @@ en:
         search_btn: "Search"
         new_question: "Ask a Question"
         asked: "Asked on %{date}"
-#        replied:
-#          one: "%{count} reply on %{date}"
-#          other: "%{count} replies on %{date}"
         replied:
-          one: "%{count} reply"
-          other: "%{count} replies"
+          one: "%{count} reply on %{date}"
+          other: "%{count} replies, last on %{date}"
+      show:
+        asked: "Asked on %{date}"
       new:
         heading: "New Question"
         submit_btn: "Post question"
@@ -32,6 +31,7 @@ en:
     answers:
       answer:
         posted: "Posted on %{date}"
+        answer_btn: "answer"
       new:
         submit_btn: "Post Answer"
       edit:

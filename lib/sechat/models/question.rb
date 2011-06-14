@@ -7,6 +7,8 @@ module Sechat
         has_many :answers, :order => :created_at, :dependent => :delete_all
         validates_presence_of :subject, :body
         
+        scope :latest, order("created_at DESC")
+        
         scope :answered,   where(:answered => true)
         scope :unanswered, where(:answered => false)
       end

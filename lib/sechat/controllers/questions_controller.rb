@@ -1,12 +1,12 @@
 module Sechat
   class QuestionsController < ApplicationController
     def index
-      @questions = Question.all
+      @questions = Question.latest
       respond_with(@questions)
     end
 
     def unanswered
-      @questions = Question.unanswered
+      @questions = Question.unanswered.latest
       
       respond_with(@questions) do |format|
         format.html { render 'index' }
