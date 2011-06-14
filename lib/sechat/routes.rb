@@ -4,7 +4,10 @@ module ActionDispatch # :nodoc:
       def sechat
         resources :questions do
           get :unanswered, :on => :collection
-          resources :answers
+          
+          resources :answers do
+            put :answer, :on => :member
+          end
         end
       end
     end

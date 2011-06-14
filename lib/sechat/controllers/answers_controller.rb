@@ -44,6 +44,14 @@ module Sechat
         :location => question_path(@question, :anchor => "A#{@answer.to_param}"))
     end
 
+    def answer
+      @answer = @question.answers.find(params[:id])
+      @answer.toggle!(:answer)
+      
+      respond_with(@question, @answer,
+        :location => question_path(@question, :anchor => "A#{@answer.to_param}"))
+    end
+
     def destroy
       @answer = @question.answers.find(params[:id])
       @answer.destroy

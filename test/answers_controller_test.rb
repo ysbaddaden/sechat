@@ -55,7 +55,7 @@ class AnswersControllerTest < ActionController::TestCase
   test "should update" do
     put :update, :question_id => @question.to_param,
       :answer => { :body => "dolor sit amet" }, :id => @answer.to_param
-    assert_redirected_to question_url(@question, :anchor => "A#{assigns(:answer).to_param}")
+    assert_redirected_to question_url(@question, :anchor => "A#{@answer.to_param}")
     assert_equal "dolor sit amet", @answer.reload.body
   end
 
@@ -64,6 +64,36 @@ class AnswersControllerTest < ActionController::TestCase
       :answer => { :body => "dolor sit amet" }, :format => 'xml'
     assert_response :ok
     assert_nil response.headers['Location']
+  end
+
+  test "should set answer" do
+    assert_difference('Answer.where(:answer => true).count') do
+      put :answer, :question_id => @question.to_param, :id => @answer.to_param
+      assert_redirected_to question_url(@question, :anchor => "A#{@answer.to_param}")
+    end
+  end
+
+  test "should set answer as xml" do
+    assert_difference('Answer.where(:answer => true).count') do
+      put :answer, :question_id => @question.to_param, :id => @answer.to_param, :format => 'xml'
+      assert_response :ok
+      assert_nil response.headers['Location']
+    end
+  end
+
+  test "should unset answer" do
+    assert_difference('Answer.where(:answer => true).count', -1) do
+      put :answer, :question_id => @question.to_param, :id => answers(:answer).to_param
+      assert_redirected_to question_url(@question, :anchor => "A#{answers(:answer).to_param}")
+    end
+  end
+
+  test "should unset answer as xml" do
+    assert_difference('Answer.where(:answer => true).count', -1) do
+      put :answer, :question_id => @question.to_param, :id => answers(:answer).to_param, :format => 'xml'
+      assert_response :ok
+      assert_nil response.headers['Location']
+    end
   end
 
   test "should destroy" do

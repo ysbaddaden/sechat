@@ -26,7 +26,11 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_response :ok
     assert_select 'h1', questions(:answered).subject
     assert_select '#answers article.answer', questions(:answered).answers.count
-    questions(:answered).answers.each { |a| assert_select "#A#{a.to_param}", 1 }
+    
+    questions(:answered).answers.each do |answer|
+      assert_select "#A#{answer.to_param}", 1
+      assert_select "a[href=#{answer_question_answer_path(questions(:answered), answer)}]", 1
+    end
   end
 
   test "should get new" do
