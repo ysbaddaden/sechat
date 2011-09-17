@@ -1,12 +1,12 @@
 module Sechat
   class QuestionsController < ApplicationController
     def index
-      @questions = Question.latest
+      @questions = resource_class.latest
       respond_with(@questions)
     end
 
     def unanswered
-      @questions = Question.unanswered.latest
+      @questions = resource_class.unanswered.latest
       
       respond_with(@questions) do |format|
         format.html { render 'index' }
@@ -14,35 +14,43 @@ module Sechat
     end
 
     def show
-      @question = Question.find(params[:id])
+      @question = resource_class.find(params[:id])
       respond_with(@question)
     end
 
     def new
-      @question = Question.new
+      @question = build_question
       respond_with(@question)
     end
 
     def edit
-      @question = Question.find(params[:id])
+      @question = resource_class.find(params[:id])
     end
 
     def create
-      @question = Question.new(params[:question])
+      @question = build_question(params[:question])
       @question.save
-      respond_with(@question)
+      respond_with(@question, :location => { :action => 'show', :id => @question.to_param })
     end
 
     def update
-      @question = Question.find(params[:id])
+      @question = resource_class.find(params[:id])
       @question.update_attributes(params[:question])
-      respond_with(@question)
+      respond_with(@question, :location => { :action => 'show', :id => @question.to_param })
     end
 
     def destroy
-      @question = Question.find(params[:id])
+      @question = resource_class.find(params[:id])
       @question.destroy
-      respond_with(@question)
+      respond_with(@question, :location => { :action => 'index' })
+    end
+
+    def resource_class
+      Question
+    end
+
+    def build_question(params = nil)
+      resource_class.new(params)
     end
   end
 end
